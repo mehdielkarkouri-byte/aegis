@@ -1,0 +1,259 @@
+{
+ "title": "AEGIS — SEALED VERDICT SHEET",
+ "matchday": "2026-11-05",
+ "sealed_at": "2026-11-05T14:40:00+01:00",
+ "models": [
+  "Dixon-Coles",
+  "Bivariate Poisson",
+  "Negative Binomial",
+  "Bayesian shrinkage",
+  "Monte Carlo 200k"
+ ],
+ "sources": [
+  "Wikipedia — 2026-27 UEFA Europa League",
+  "Wikipedia — 2026-27 UEFA Conference League"
+ ],
+ "picks": [
+  {
+   "time": "17:45",
+   "home": "Atalanta",
+   "away": "Kairat",
+   "verdict": "1-1",
+   "p": 9.18,
+   "second": "2-1",
+   "second_p": 9.15,
+   "third": "2-0",
+   "tier": 3,
+   "stability": 47.0,
+   "lambda": [
+    2.15,
+    1.32
+   ]
+  },
+  {
+   "time": "17:45",
+   "home": "KuPS",
+   "away": "Gent",
+   "verdict": "1-1",
+   "p": 12.08,
+   "second": "0-1",
+   "second_p": 9.03,
+   "third": "1-2",
+   "tier": 2,
+   "stability": 100.0,
+   "lambda": [
+    1.26,
+    1.54
+   ]
+  },
+  {
+   "time": "17:45",
+   "home": "Lillestrøm",
+   "away": "Viktoria Plzeň",
+   "verdict": "1-1",
+   "p": 10.97,
+   "second": "1-2",
+   "second_p": 8.32,
+   "third": "2-1",
+   "tier": 3,
+   "stability": 100.0,
+   "lambda": [
+    1.52,
+    1.63
+   ]
+  },
+  {
+   "time": "17:45",
+   "home": "Milan",
+   "away": "Ferencváros",
+   "verdict": "1-2",
+   "p": 9.06,
+   "second": "1-1",
+   "second_p": 8.73,
+   "third": "0-2",
+   "tier": 3,
+   "stability": 67.0,
+   "lambda": [
+    1.32,
+    2.24
+   ]
+  },
+  {
+   "time": "17:45",
+   "home": "Real Sociedad",
+   "away": "Lyon",
+   "verdict": "2-1",
+   "p": 8.74,
+   "second": "1-1",
+   "second_p": 7.69,
+   "third": "3-1",
+   "tier": 3,
+   "stability": 92.5,
+   "lambda": [
+    2.47,
+    1.35
+   ]
+  },
+  {
+   "time": "17:45",
+   "home": "Trabzonspor",
+   "away": "SC Freiburg",
+   "verdict": "2-1",
+   "p": 8.51,
+   "second": "3-1",
+   "second_p": 7.35,
+   "third": "1-1",
+   "tier": 3,
+   "stability": 100.0,
+   "lambda": [
+    2.64,
+    1.32
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "AZ",
+   "away": "Juventus",
+   "verdict": "1-1",
+   "p": 10.69,
+   "second": "1-2",
+   "second_p": 8.13,
+   "third": "2-1",
+   "tier": 3,
+   "stability": 100.0,
+   "lambda": [
+    1.59,
+    1.63
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Benfica",
+   "away": "Lech Poznań",
+   "verdict": "3-0",
+   "p": 9.83,
+   "second": "2-0",
+   "second_p": 8.72,
+   "third": "4-0",
+   "tier": 3,
+   "stability": 89.8,
+   "lambda": [
+    3.52,
+    0.77
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Copenhagen",
+   "away": "Saburtalo Tbilisi",
+   "verdict": "1-1",
+   "p": 10.4,
+   "second": "1-0",
+   "second_p": 9.73,
+   "third": "2-0",
+   "tier": 3,
+   "stability": 53.0,
+   "lambda": [
+    1.97,
+    1.02
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Getafe",
+   "away": "Brighton & Hove Albion",
+   "verdict": "1-2",
+   "p": 9.44,
+   "second": "1-1",
+   "second_p": 9.14,
+   "third": "0-2",
+   "tier": 3,
+   "stability": 42.8,
+   "lambda": [
+    1.08,
+    2.22
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Lugano",
+   "away": "Kauno Žalgiris",
+   "verdict": "3-1",
+   "p": 6.86,
+   "second": "4-1",
+   "second_p": 6.62,
+   "third": "3-0",
+   "tier": 4,
+   "stability": 61.8,
+   "lambda": [
+    3.94,
+    1.28
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Panathinaikos",
+   "away": "CSKA Sofia",
+   "verdict": "2-1",
+   "p": 8.58,
+   "second": "3-1",
+   "second_p": 7.31,
+   "third": "1-1",
+   "tier": 3,
+   "stability": 100.0,
+   "lambda": [
+    2.6,
+    1.32
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Sturm Graz",
+   "away": "Celje",
+   "verdict": "1-1",
+   "p": 13.19,
+   "second": "1-0",
+   "second_p": 12.87,
+   "third": "0-0",
+   "tier": 2,
+   "stability": 60.0,
+   "lambda": [
+    1.33,
+    0.97
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Sunderland",
+   "away": "Dinamo Zagreb",
+   "verdict": "1-1",
+   "p": 12.67,
+   "second": "1-0",
+   "second_p": 12.23,
+   "third": "0-0",
+   "tier": 2,
+   "stability": 65.5,
+   "lambda": [
+    1.47,
+    0.98
+   ]
+  },
+  {
+   "time": "20:00",
+   "home": "Twente",
+   "away": "Pafos",
+   "verdict": "2-0",
+   "p": 9.58,
+   "second": "2-1",
+   "second_p": 9.49,
+   "third": "1-1",
+   "tier": 3,
+   "stability": 37.2,
+   "lambda": [
+    2.19,
+    1.02
+   ]
+  }
+ ],
+ "sha256": "bcbeb00a29698e19c855156f9a2b42df2b802ad82416a1ea54f443ca4c4f5802"
+}
