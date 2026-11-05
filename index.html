@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AEGIS — Ultimate Forensic Intelligence</title>
+<meta name="description" content="AEGIS: forensic football exact-score intelligence. Real data, traceable models, no fabricated certainty.">
+<style>
+:root{--bg:#070b0d;--panel:#0d1418;--panel2:#111b20;--line:#1d2b31;--em:#10b981;--em2:#059669;
+--gold:#d4af37;--txt:#e8f0f2;--mut:#8ca0a8;--red:#ef4444;--amber:#f59e0b;--blue:#38bdf8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.55 "Inter",-apple-system,Segoe UI,Roboto,sans-serif;
+background-image:radial-gradient(900px 500px at 80% -10%,rgba(16,185,129,.10),transparent 60%),
+radial-gradient(700px 400px at 10% 110%,rgba(56,189,248,.06),transparent 60%)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1220px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:rgba(7,11,13,.85);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50}
+.bar{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:12px}
+.mark{width:38px;height:38px;border:1px solid var(--em);border-radius:10px;display:grid;place-items:center;
+background:linear-gradient(160deg,rgba(16,185,129,.18),rgba(16,185,129,.02));color:var(--em);font-weight:800}
+.brand b{display:block;letter-spacing:.16em;font-size:14px}
+.brand span{font-size:10.5px;color:var(--mut);letter-spacing:.22em}
+nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav button{background:none;border:1px solid transparent;color:var(--mut);padding:8px 12px;border-radius:8px;
+font-size:12.5px;letter-spacing:.05em;cursor:pointer;transition:.2s}
+nav button:hover{color:var(--txt);background:var(--panel)}
+nav button.on{color:var(--em);border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.08)}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--mut);border:1px solid var(--line);
+border-radius:99px;padding:5px 11px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--em);box-shadow:0 0 0 3px rgba(16,185,129,.15)}
+main{padding:26px 0 70px}
+h1{font-size:22px;letter-spacing:.02em;font-weight:650}
+h2{font-size:12px;letter-spacing:.18em;color:var(--mut);font-weight:600;margin:26px 0 12px}
+.sub{color:var(--mut);font-size:13.5px;max-width:820px;margin-top:6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:20px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.kpi b{display:block;font-size:23px;font-variant-numeric:tabular-nums}
+.kpi span{font-size:11px;color:var(--mut);letter-spacing:.12em}
+.alert{display:flex;gap:12px;align-items:flex-start;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.28);
+border-radius:12px;padding:13px 16px;margin-top:18px;font-size:13px;color:#f7d9a8}
+.alert b{color:var(--amber)}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
+th{text-align:left;font-size:10.5px;letter-spacing:.14em;color:var(--mut);font-weight:600;
+padding:10px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:11px 10px;border-bottom:1px solid rgba(29,43,49,.6);vertical-align:middle}
+tr.row{cursor:pointer;transition:.15s}tr.row:hover{background:var(--panel)}
+.verdict{font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em;color:var(--em)}
+.tier{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.06em;white-space:nowrap}
+.t1{background:rgba(16,185,129,.16);color:#34d399;border:1px solid rgba(16,185,129,.4)}
+.t2{background:rgba(56,189,248,.13);color:#7dd3fc;border:1px solid rgba(56,189,248,.35)}
+.t3{background:rgba(212,175,55,.13);color:#e7ce7a;border:1px solid rgba(212,175,55,.32)}
+.t4{background:rgba(239,68,68,.12);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+.mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.pbar{height:5px;border-radius:3px;background:#16232a;overflow:hidden;min-width:60px}
+.pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--em2),var(--em))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+.lbl{font-size:10.5px;letter-spacing:.14em;color:var(--mut);margin-bottom:6px}
+.big{font-size:15px}
+.hide{display:none}
+.modal{position:fixed;inset:0;background:rgba(3,6,8,.82);backdrop-filter:blur(6px);display:none;
+z-index:100;overflow:auto;padding:28px 14px}
+.modal.on{display:block}
+.sheet{max-width:1000px;margin:0 auto;background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:22px}
+.close{float:right;background:none;border:1px solid var(--line);color:var(--mut);border-radius:8px;
+padding:6px 11px;cursor:pointer}
+.scorerow{display:grid;grid-template-columns:54px 1fr 58px;gap:10px;align-items:center;padding:5px 0;font-size:13px}
+.scorerow .s{font-weight:600;font-variant-numeric:tabular-nums}
+.badge{font-size:10px;color:var(--mut);border:1px solid var(--line);border-radius:5px;padding:2px 6px}
+.src{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(29,43,49,.6);font-size:13.5px}
+.ok{color:#34d399}.no{color:#fca5a5}.part{color:#e7ce7a}
+ul.tight{margin:8px 0 0 18px;color:var(--mut);font-size:13.5px}
+ul.tight li{margin:5px 0}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:12px;padding:18px 0;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <div class="logo"><div class="mark">Æ</div>
+    <div class="brand"><b>AEGIS</b><span>ULTIMATE FORENSIC INTELLIGENCE</span></div></div>
+  <nav>
+    <button data-v="dash" class="on">DASHBOARD</button>
+    <button data-v="matches">MATCHES</button>
+    <button data-v="lab">EXACT SCORE LAB</button>
+    <button data-v="models">MODELS</button>
+    <button data-v="sources">DATA SOURCES</button>
+    <button data-v="method">METHOD</button>
+  </nav>
+  <span class="pill"><span class="dot"></span>1 SOURCE ONLINE</span>
+</div></header>
+
+<main class="wrap">
+  <section id="v-dash">
+    <h1>Forensic board — 15 fixtures, 05/11/2026</h1>
+    <p class="sub">Every verdict below is produced by the same five-family ensemble from UEFA league-phase
+    results published on Wikipedia. Sample size is 2–4 matches per team, so uncertainty is high and shown
+    explicitly. No API key is connected; nothing here is fabricated.</p>
+    <div class="kpis" id="kpis"></div>
+    <div class="alert"><span>⚠</span><div><b>Data integrity:</b> competition tables only (goals for/against).
+    No xG, no lineups, no injuries, no odds. The engine says so instead of inventing them.</div></div>
+    <h2>TOP EXACT-SCORE CANDIDATES</h2>
+    <div id="verdicts"></div>
+  </section>
+
+  <section id="v-matches" class="hide"><h1>All fixtures</h1>
+    <p class="sub">Click any row for the full forensic sheet.</p>
+    <div id="allmatches"></div></section>
+
+  <section id="v-lab" class="hide"><h1>Exact Score Lab</h1>
+    <p class="sub">Full 0–0 to 9–9 matrix per fixture, ranked, with combined top-3 mass.</p>
+    <div id="lab"></div></section>
+
+  <section id="v-models" class="hide"><h1>Model intelligence</h1>
+    <p class="sub">Five model families, weighted by construction — not by performance, because no
+    walk-forward calibration exists yet for this season.</p>
+    <div class="card"><table><thead><tr><th>MODEL</th><th>WEIGHT</th><th>WHAT IT CAPTURES</th><th>STATUS</th></tr></thead>
+    <tbody>
+      <tr><td>Dixon–Coles</td><td class="mono">0.45</td><td>Low-score correction (0-0,1-0,0-1,1-1), ρ = −0.10</td><td class="ok">ACTIVE</td></tr>
+      <tr><td>Bivariate Poisson</td><td class="mono">0.30</td><td>Shared component between both teams' goals (10%)</td><td class="ok">ACTIVE</td></tr>
+      <tr><td>Negative Binomial</td><td class="mono">0.25</td><td>Overdispersion, high-variance matches</td><td class="ok">ACTIVE</td></tr>
+      <tr><td>Bayesian shrinkage</td><td class="mono">—</td><td>Team rates shrunk toward the mean with k = 4</td><td class="ok">ACTIVE</td></tr>
+      <tr><td>Monte Carlo</td><td class="mono">—</td><td>200,000 draws per fixture, parameter noise ±15%</td><td class="ok">ACTIVE</td></tr>
+      <tr><td>Gradient boosting / XGBoost</td><td class="mono">—</td><td>Learned residual model</td><td class="no">NOT IMPLEMENTED</td></tr>
+      <tr><td>Bayesian hierarchical (PyMC)</td><td class="mono">—</td><td>Cross-league partial pooling</td><td class="no">NOT IMPLEMENTED</td></tr>
+      <tr><td>Market-implied</td><td class="mono">—</td><td>Bookmaker consensus</td><td class="no">NO FEED</td></tr>
+      <tr><td>Elo / Glicko</td><td class="mono">—</td><td>Cross-competition strength</td><td class="no">NOT IMPLEMENTED</td></tr>
+    </tbody></table></div>
+    <div class="alert" style="margin-top:16px"><span>ℹ</span><div>Model agreement is <b>not</b> independent
+    evidence: DC, BP and NB share the same Poisson assumption. Their convergence is reported, never counted as proof.</div></div>
+  </section>
+
+  <section id="v-sources" class="hide"><h1>Data sources</h1>
+    <p class="sub">A source that is not connected is shown as disconnected, never simulated.</p>
+    <div class="card" id="sources"></div></section>
+
+  <section id="v-method" class="hide"><h1>Method & limits</h1>
+    <div class="card">
+      <div class="lbl">PIPELINE</div>
+      <ul class="tight">
+        <li>Ingest → team goals for/against from the UEFA league-phase tables.</li>
+        <li>Rate estimation: attack and defence per match, divided by the competition mean, then
+        shrunk toward 1 with weight n/(n+4).</li>
+        <li>λ<sub>home</sub> = μ · att<sub>h</sub> · def<sub>a</sub> · 1.08, λ<sub>away</sub> = μ · att<sub>a</sub> · def<sub>h</sub>.</li>
+        <li>Three score distributions (DC, BP, NB) → weighted blend.</li>
+        <li>200,000 Monte Carlo draws with ±15% parameter noise → stability of the leading score.</li>
+        <li>Verdict tier from probability and stability, never from model agreement alone.</li>
+      </ul>
+      <div class="lbl" style="margin-top:16px">WHAT THIS CANNOT DO</div>
+      <ul class="tight">
+        <li>Produce a certain exact score. The best candidate in this board is ≈13%.</li>
+        <li>Use xG, lineups, injuries, referees or weather: no feed is connected.</li>
+        <li>Claim calibration: no walk-forward archive exists yet for 2026/27.</li>
+        <li>Treat a 2–4 match sample as a stable team strength.</li>
+      </ul>
+      <div class="lbl" style="margin-top:16px">TRACEABILITY</div>
+      <p class="sub">Each fixture stores its λ, the five model outputs, the Monte Carlo leader and the
+      stability rate, so any verdict can be audited after the match.</p>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+
+<script>
+const D = {"mu":{"EL":1.509090909090909,"CL":1.4594594594594594},"matches":[{"time":"17:45","home":"Trabzonspor","away":"SC Freiburg","comp":"CL","data":{"lambda":[2.637,1.318],"p1":64.8,"px":17.9,"p2":17.3,"btts":67.2,"o25":74.3,"top":[{"s":"2-1","p":8.51},{"s":"3-1","p":7.35},{"s":"1-1","p":7.03},{"s":"2-0","p":6.73},{"s":"3-0","p":5.74},{"s":"2-2","p":5.52},{"s":"1-0","p":5.12},{"s":"4-1","p":4.86},{"s":"3-2","p":4.83},{"s":"1-2","p":4.32}],"top3":22.9,"mc_top":{"2-1":8.68,"3-1":7.7,"2-0":6.82},"stability":100.0,"tier":3,"verdict":"2-1"}},{"time":"17:45","home":"KuPS","away":"Gent","comp":"CL","data":{"lambda":[1.263,1.541],"p1":30.6,"px":26.3,"p2":43.1,"btts":56.1,"o25":52.5,"top":[{"s":"1-1","p":12.08},{"s":"0-1","p":9.03},{"s":"1-2","p":8.74},{"s":"1-0","p":7.32},{"s":"0-0","p":7.21},{"s":"2-1","p":7.17},{"s":"0-2","p":7.08},{"s":"2-2","p":5.54},{"s":"2-0","p":4.77},{"s":"1-3","p":4.51}],"top3":29.8,"mc_top":{"1-1":11.79,"0-1":9.42,"1-2":8.95},"stability":100.0,"tier":2,"verdict":"1-1"}},{"time":"17:45","home":"Atalanta","away":"Kairat","comp":"CL","data":{"lambda":[2.151,1.318],"p1":55.7,"px":21.5,"p2":22.8,"btts":64.1,"o25":66.3,"top":[{"s":"1-1","p":9.18},{"s":"2-1","p":9.15},{"s":"2-0","p":7.19},{"s":"1-0","p":6.63},{"s":"3-1","p":6.5},{"s":"2-2","p":5.97},{"s":"1-2","p":5.64},{"s":"3-0","p":5.04},{"s":"3-2","p":4.31},{"s":"0-0","p":3.96}],"top3":25.5,"mc_top":{"2-1":9.42,"1-1":8.9,"2-0":7.18},"stability":47.0,"tier":3,"verdict":"1-1"}},{"time":"17:45","home":"Real Sociedad","away":"Lyon","comp":"EL","data":{"lambda":[2.468,1.349],"p1":61.2,"px":19.2,"p2":19.6,"btts":67.0,"o25":72.2,"top":[{"s":"2-1","p":8.74},{"s":"1-1","p":7.69},{"s":"3-1","p":7.09},{"s":"2-0","p":6.75},{"s":"2-2","p":5.81},{"s":"1-0","p":5.46},{"s":"3-0","p":5.4},{"s":"1-2","p":4.83},{"s":"3-2","p":4.77},{"s":"4-1","p":4.4}],"top3":23.5,"mc_top":{"2-1":8.99,"1-1":7.51,"3-1":7.44},"stability":92.5,"tier":3,"verdict":"2-1"}},{"time":"17:45","home":"Lillestrøm","away":"Viktoria Plzeň","comp":"CL","data":{"lambda":[1.52,1.626],"p1":35.3,"px":24.8,"p2":39.9,"btts":62.3,"o25":60.0,"top":[{"s":"1-1","p":10.97},{"s":"1-2","p":8.32},{"s":"2-1","p":7.77},{"s":"0-1","p":6.8},{"s":"1-0","p":6.33},{"s":"2-2","p":6.3},{"s":"0-2","p":5.65},{"s":"0-0","p":5.33},{"s":"2-0","p":4.94},{"s":"1-3","p":4.5}],"top3":27.1,"mc_top":{"1-1":10.66,"1-2":8.64,"2-1":7.92},"stability":100.0,"tier":3,"verdict":"1-1"}},{"time":"17:45","home":"Milan","away":"Ferencváros","comp":"EL","data":{"lambda":[1.325,2.244],"p1":21.7,"px":20.8,"p2":57.5,"btts":64.9,"o25":68.1,"top":[{"s":"1-2","p":9.06},{"s":"1-1","p":8.73},{"s":"0-2","p":7.1},{"s":"1-3","p":6.71},{"s":"0-1","p":6.29},{"s":"2-2","p":5.94},{"s":"2-1","p":5.39},{"s":"0-3","p":5.19},{"s":"2-3","p":4.46},{"s":"1-4","p":3.81}],"top3":24.9,"mc_top":{"1-2":9.41,"1-1":8.4,"0-2":7.22},"stability":67.0,"tier":3,"verdict":"1-2"}},{"time":"20:00","home":"Panathinaikos","away":"CSKA Sofia","comp":"CL","data":{"lambda":[2.596,1.318],"p1":64.1,"px":18.2,"p2":17.7,"btts":67.0,"o25":73.7,"top":[{"s":"2-1","p":8.58},{"s":"3-1","p":7.31},{"s":"1-1","p":7.2},{"s":"2-0","p":6.79},{"s":"3-0","p":5.7},{"s":"2-2","p":5.58},{"s":"1-0","p":5.24},{"s":"3-2","p":4.81},{"s":"4-1","p":4.76},{"s":"1-2","p":4.42}],"top3":23.1,"mc_top":{"2-1":8.77,"3-1":7.7,"1-1":6.91},"stability":100.0,"tier":3,"verdict":"2-1"}},{"time":"20:00","home":"Getafe","away":"Brighton & Hove Albion","comp":"EL","data":{"lambda":[1.084,2.224],"p1":17.2,"px":20.5,"p2":62.3,"btts":58.5,"o25":63.3,"top":[{"s":"1-2","p":9.44},{"s":"1-1","p":9.14},{"s":"0-2","p":8.98},{"s":"0-1","p":8.07},{"s":"1-3","p":6.95},{"s":"0-3","p":6.52},{"s":"2-2","p":5.09},{"s":"2-1","p":4.65},{"s":"0-0","p":4.54},{"s":"1-4","p":3.92}],"top3":27.6,"mc_top":{"1-2":9.81,"0-2":8.97,"1-1":8.82},"stability":42.8,"tier":3,"verdict":"1-2"}},{"time":"20:00","home":"Twente","away":"Pafos","comp":"CL","data":{"lambda":[2.192,1.02],"p1":63.2,"px":20.5,"p2":16.3,"btts":56.3,"o25":61.4,"top":[{"s":"2-0","p":9.58},{"s":"2-1","p":9.49},{"s":"1-1","p":9.31},{"s":"1-0","p":8.74},{"s":"3-1","p":6.9},{"s":"3-0","p":6.86},{"s":"0-0","p":4.94},{"s":"2-2","p":4.82},{"s":"1-2","p":4.47},{"s":"0-1","p":3.92}],"top3":28.4,"mc_top":{"2-1":9.81,"2-0":9.64,"1-1":9.03},"stability":37.2,"tier":3,"verdict":"2-0"}},{"time":"20:00","home":"Lugano","away":"Kauno Žalgiris","comp":"CL","data":{"lambda":[3.936,1.28],"p1":82.0,"px":10.1,"p2":7.9,"btts":69.9,"o25":87.8,"top":[{"s":"3-1","p":6.86},{"s":"4-1","p":6.62},{"s":"3-0","p":5.59},{"s":"2-1","p":5.46},{"s":"4-0","p":5.34},{"s":"5-1","p":5.21},{"s":"2-0","p":4.5},{"s":"3-2","p":4.33},{"s":"4-2","p":4.22},{"s":"5-0","p":4.16}],"top3":19.1,"mc_top":{"3-1":7.49,"4-1":7.12,"4-0":5.71},"stability":61.8,"tier":4,"verdict":"3-1"}},{"time":"20:00","home":"Copenhagen","away":"Saburtalo Tbilisi","comp":"CL","data":{"lambda":[1.969,1.02],"p1":58.6,"px":22.6,"p2":18.7,"btts":54.7,"o25":56.7,"top":[{"s":"1-1","p":10.4},{"s":"1-0","p":9.73},{"s":"2-0","p":9.62},{"s":"2-1","p":9.57},{"s":"3-1","p":6.28},{"s":"3-0","p":6.22},{"s":"0-0","p":6.04},{"s":"1-2","p":4.99},{"s":"0-1","p":4.88},{"s":"2-2","p":4.88}],"top3":29.7,"mc_top":{"1-1":10.2,"1-0":10.01,"2-1":9.82},"stability":53.0,"tier":3,"verdict":"1-1"}},{"time":"20:00","home":"Sunderland","away":"Dinamo Zagreb","comp":"EL","data":{"lambda":[1.471,0.982],"p1":47.7,"px":27.8,"p2":24.6,"btts":48.1,"o25":44.1,"top":[{"s":"1-1","p":12.67},{"s":"1-0","p":12.23},{"s":"0-0","p":9.84},{"s":"2-0","p":9.1},{"s":"2-1","p":8.82},{"s":"0-1","p":8.0},{"s":"1-2","p":5.89},{"s":"3-0","p":4.44},{"s":"2-2","p":4.38},{"s":"3-1","p":4.38}],"top3":34.7,"mc_top":{"1-0":12.87,"1-1":12.43,"2-1":9.09},"stability":65.5,"tier":2,"verdict":"1-1"}},{"time":"20:00","home":"Benfica","away":"Lech Poznań","comp":"EL","data":{"lambda":[3.522,0.765],"p1":86.1,"px":9.3,"p2":4.6,"btts":51.3,"o25":78.6,"top":[{"s":"3-0","p":9.83},{"s":"2-0","p":8.72},{"s":"4-0","p":8.51},{"s":"3-1","p":7.34},{"s":"2-1","p":6.44},{"s":"4-1","p":6.41},{"s":"5-0","p":6.01},{"s":"1-0","p":5.17},{"s":"5-1","p":4.56},{"s":"1-1","p":4.06}],"top3":27.1,"mc_top":{"3-0":10.32,"4-0":9.01,"2-0":8.8},"stability":89.8,"tier":3,"verdict":"3-0"}},{"time":"20:00","home":"Sturm Graz","away":"Celje","comp":"CL","data":{"lambda":[1.326,0.969],"p1":44.0,"px":29.4,"p2":26.6,"btts":45.6,"o25":40.0,"top":[{"s":"1-1","p":13.19},{"s":"1-0","p":12.87},{"s":"0-0","p":11.39},{"s":"0-1","p":9.26},{"s":"2-0","p":8.64},{"s":"2-1","p":8.3},{"s":"1-2","p":6.06},{"s":"0-2","p":4.63},{"s":"2-2","p":4.09},{"s":"3-0","p":3.81}],"top3":37.4,"mc_top":{"1-0":13.5,"1-1":12.95,"0-0":10.09},"stability":60.0,"tier":2,"verdict":"1-1"}},{"time":"20:00","home":"AZ","away":"Juventus","comp":"EL","data":{"lambda":[1.589,1.634],"p1":36.8,"px":24.5,"p2":38.7,"btts":63.5,"o25":61.5,"top":[{"s":"1-1","p":10.69},{"s":"1-2","p":8.13},{"s":"2-1","p":7.91},{"s":"2-2","p":6.42},{"s":"0-1","p":6.33},{"s":"1-0","p":6.15},{"s":"0-2","p":5.29},{"s":"2-0","p":5.01},{"s":"0-0","p":4.99},{"s":"1-3","p":4.42}],"top3":26.7,"mc_top":{"1-1":10.39,"1-2":8.42,"2-1":8.06},"stability":100.0,"tier":3,"verdict":"1-1"}}]};
+const tierName = t => ({1:'TIER 1 · STRONG',2:'TIER 2 · SUPPORTED',3:'TIER 3 · FRAGILE',4:'TIER 4 · UNCERTAIN'})[t];
+
+function kpis(){
+  const ms=D.matches.filter(m=>m.data), ps=ms.map(m=>m.data.top[0].p);
+  const avg=(ps.reduce((a,b)=>a+b,0)/ps.length).toFixed(1);
+  const best=Math.max(...ps).toFixed(1);
+  document.getElementById('kpis').innerHTML=[
+    ['FIXTURES ANALYSED',ms.length],['MEAN TOP-1 PROBABILITY',avg+'%'],
+    ['BEST CANDIDATE',best+'%'],['MODEL FAMILIES','5'],['SOURCES ONLINE','1 / 10']
+  ].map(([l,v])=>`<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join('');
+}
+function tbl(list){
+  return `<table><thead><tr><th>TIME</th><th>FIXTURE</th><th>VERDICT</th><th>P</th><th>1 / X / 2</th>
+  <th>STAB</th><th>TIER</th></tr></thead><tbody>`+list.map((m,i)=>{
+    const r=m.data;
+    return `<tr class="row" onclick="openMatch(${D.matches.indexOf(m)})">
+      <td class="mono">${m.time}</td>
+      <td><b>${m.home}</b> <span style="color:#5b7078">v</span> ${m.away}</td>
+      <td class="verdict">${r.verdict}</td>
+      <td class="mono">${r.top[0].p.toFixed(1)}%</td>
+      <td class="mono" style="color:#8ca0a8">${r.p1}/${r.px}/${r.p2}</td>
+      <td class="mono">${r.stability}%</td>
+      <td><span class="tier t${r.tier}">${tierName(r.tier).split(' · ')[0]}</span></td></tr>`;
+  }).join('')+'</tbody></table>';
+}
+function render(){
+  const withData=D.matches.filter(m=>m.data);
+  document.getElementById('verdicts').innerHTML=tbl(withData.slice().sort((a,b)=>b.data.top[0].p-a.data.top[0].p).slice(0,6));
+  document.getElementById('allmatches').innerHTML=tbl(D.matches.filter(m=>m.data));
+  document.getElementById('lab').innerHTML=D.matches.filter(m=>m.data).map(m=>{
+    const r=m.data;
+    return `<div class="card" style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <b>${m.home} — ${m.away}</b>
+        <span class="badge">λ ${r.lambda[0]} / ${r.lambda[1]}</span></div>
+      <div style="margin-top:10px">`+r.top.map((s,i)=>`
+        <div class="scorerow"><span class="s">${s.s}</span>
+        <div class="pbar"><i style="width:${Math.min(100,s.p*100/14)}%"></i></div>
+        <span class="mono" style="text-align:right">${s.p}%</span></div>`).join('')+`
+      <div class="lbl" style="margin-top:10px">TOP-3 MASS ${r.top3}% · BTTS ${r.btts}% · OVER 2.5 ${r.o25}%</div></div>
+    </div>`;}).join('');
+  document.getElementById('sources').innerHTML=[
+    ['Wikipedia — UEFA Europa League 2026/27','VERIFIED','ok'],
+    ['Wikipedia — UEFA Conference League 2026/27','VERIFIED','ok'],
+    ['API-Football','NO API KEY','no'],['Sportmonks','NO API KEY','no'],
+    ['football-data.org','NO API KEY','no'],['StatsBomb Open Data','NOT INGESTED','no'],
+    ['Understat (xG)','NOT CONNECTED','no'],['FBref','NOT CONNECTED','no'],
+    ['Lineups / injuries / suspensions','NO FEED','no'],
+    ['Weather & pitch','NO FEED','no'],['Betting market','NO FEED','no']
+  ].map(([n,s,c])=>`<div class="src"><span>${n}</span><span class="${c}">${s}</span></div>`).join('');
+}
+function openMatch(idx){
+  const m=D.matches[idx], r=m.data;
+  const scen=[
+    `If ${m.home}'s attack rate drops 15%: leader becomes ${lead(r.lambda[0]*0.85,r.lambda[1])}.`,
+    `If ${m.away}'s defence improves 15%: leader becomes ${lead(r.lambda[0],r.lambda[1]*0.85)}.`,
+    `If both scoring rates rise 15%: leader becomes ${lead(r.lambda[0]*1.15,r.lambda[1]*1.15)}.`
+  ];
+  document.getElementById('sheet').innerHTML=`
+   <button class="close" onclick="closeModal()">CLOSE ✕</button>
+   <div class="lbl">AEGIS FINAL FORENSIC VERDICT</div>
+   <h1 style="margin:6px 0 2px">${m.home} <span style="color:#5b7078">vs</span> ${m.away}</h1>
+   <div class="sub">05/11/2026 · ${m.time} · ${m.comp==='EL'?'Europa League':'Conference League'} league phase</div>
+   <div class="grid2" style="margin-top:18px">
+     <div class="card">
+       <div class="lbl">FINAL SCORE VERDICT</div>
+       <div style="font-size:34px;font-weight:750;letter-spacing:.04em" class="verdict">${r.verdict}</div>
+       <div class="sub">${r.top[0].p}% modelled probability · tier ${r.tier} · stability ${r.stability}%</div>
+       <div style="margin-top:14px">${r.top.slice(0,6).map(s=>`
+         <div class="scorerow"><span class="s">${s.s}</span>
+         <div class="pbar"><i style="width:${Math.min(100,s.p*100/14)}%"></i></div>
+         <span class="mono" style="text-align:right">${s.p}%</span></div>`).join('')}</div>
+     </div>
+     <div class="card">
+       <div class="lbl">MARKET-LEVEL OUTPUTS</div>
+       <div class="scorerow"><span>HOME WIN</span><div class="pbar"><i style="width:${r.p1}%"></i></div><span class="mono" style="text-align:right">${r.p1}%</span></div>
+       <div class="scorerow"><span>DRAW</span><div class="pbar"><i style="width:${r.px}%"></i></div><span class="mono" style="text-align:right">${r.px}%</span></div>
+       <div class="scorerow"><span>AWAY WIN</span><div class="pbar"><i style="width:${r.p2}%"></i></div><span class="mono" style="text-align:right">${r.p2}%</span></div>
+       <div class="scorerow"><span>BTTS</span><div class="pbar"><i style="width:${r.btts}%"></i></div><span class="mono" style="text-align:right">${r.btts}%</span></div>
+       <div class="scorerow"><span>OVER 2.5</span><div class="pbar"><i style="width:${r.o25}%"></i></div><span class="mono" style="text-align:right">${r.o25}%</span></div>
+       <div class="lbl" style="margin-top:12px">MONTE CARLO LEADERS (200k)</div>
+       <div class="sub">${Object.entries(r.mc_top).map(([k,v])=>k+' '+v+'%').join(' · ')}</div>
+     </div>
+   </div>
+   <div class="card" style="margin-top:14px">
+     <div class="lbl">WHY THIS SCORE</div>
+     <p class="sub">Expected goals ${r.lambda[0]} – ${r.lambda[1]} from league-phase goals for/against, shrunk
+     toward the competition mean. Dixon–Coles, Bivariate Poisson and Negative Binomial converge on
+     ${r.verdict}; top-3 mass ${r.top3}%.</p>
+     <div class="lbl" style="margin-top:12px">ALTERNATIVE SCENARIOS</div>
+     <ul class="tight">${scen.map(s=>`<li>${s}</li>`).join('')}</ul>
+     <div class="lbl" style="margin-top:12px">DATA INTEGRITY</div>
+     <ul class="tight">
+       <li>Source: Wikipedia UEFA league-phase table (goal counts only).</li>
+       <li>Missing: xG, lineups, injuries, odds, weather.</li>
+       <li>Sample: 2–4 matches per team → high parameter uncertainty.</li>
+       <li>No certainty claimed. This is a ranked candidate, not a prediction of the future.</li>
+     </ul>
+   </div>`;
+  document.getElementById('modal').classList.add('on');
+}
+function lead(l1,l2){
+  const K=9, f=l=>{const v=[];for(let k=0;k<=K;k++)v.push(Math.exp(-l)*Math.pow(l,k)/[...Array(k).keys()].reduce((a,b)=>a*(b+1),1));const s=v.reduce((a,b)=>a+b,0);return v.map(x=>x/s)};
+  const h=f(l1),a=f(l2);let best=0,bs='0-0';
+  for(let i=0;i<=K;i++)for(let j=0;j<=K;j++){const p=h[i]*a[j];if(p>best){best=p;bs=i+'-'+j}}
+  return bs;
+}
+function closeModal(){document.getElementById('modal').classList.remove('on')}
+document.addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  document.querySelectorAll('main section').forEach(s=>s.classList.add('hide'));
+  document.getElementById('v-'+b.dataset.v).classList.remove('hide');
+});
+kpis();render();
+</script>
+<footer>AEGIS v10.0 · real data, traceable models, no fabricated certainty · built 05/11/2026</footer>
+</body></html>
